@@ -16,16 +16,16 @@ app.set("view engine", "ejs");
 
 let productos = [];
 
-app.get("/", (req, res, next)=>{
-    // res.send("Ok")
-    res.render("index", {productos});
+app.get('/', (req, res, next) => {
+    res.render('index', {productos})
 });
-
-app.post("/productos", (req, res, next)=>{
+app.post('/productos', (req, res, next) => {
     productos.push(req.body);
-    res.redirect("/");
+    res.redirect('/');
 });
-
+app.get('/productos', (req, res, next) => {
+    res.render('productos', {productos})
+});
 
 
 app.listen(PORT);
